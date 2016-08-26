@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+		<!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+		<!-- Good default declaration:
+		* gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+		* https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+		* Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+		* Enable inline JS: add 'unsafe-inline' to default-src
+		* Enable eval(): add 'unsafe-eval' to default-src
+		* Create your own at http://cspisawesome.com
+		-->
+		<!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<title>GitHub RepoFinder</title>
+	</head>
+	<body>
+		<div class="app">
+			<div data-role="page">
+				<header data-role="header">
+					<h1>RepoFinder</h1>
+				</header>
+
+				<div data-role="content">
+					<form>
+						<input type="text" id="search_input" data-type="search" placeholder="Search by User...">
+						<button type="button" id="search_btn">Search</button>
+					</form>
+
+					<div id="user_info"></div>
+
+					<ul id="search_list" data-role="listview"></ul>
+
+					<br><br>
+					<h3>Latest Repos</h3>
+					<form class="ui-filterable">
+						<input type="text" data-type="search" id="filterBasic-input" placeholder="Filter Items...">
+					</form>
+					<ul id="repo_list" data-role="listview" data-filter="true" data-input="#filterBasic-input"></ul>
+					
+				</div>
+
+				<footer data-role="footer">
+					<h3>BabinKuk Copyright &copy; 2016</h3>
+				</footer>
+
+			</div>
+			
+		</div>
+		<script type="text/javascript" src="cordova.js"></script>
+		 <script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+	
+	</body>
+</html>
